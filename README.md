@@ -1,3 +1,1 @@
 # php-exercise
-
-test syn
