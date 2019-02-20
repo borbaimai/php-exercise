@@ -1,3 +1,3 @@
 # php-exercise
 
-edit read me
+test syn
