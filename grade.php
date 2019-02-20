@@ -7,7 +7,7 @@ $grade_array = [];
 if (isset($_POST['txt_score'])) {
 
     $score = $_POST['txt_score'];
-    $grade_array = ['A'=>41,'B'=>31,'C'=>21,'D'=>11,'E'=>0];
+    $grade_array = ['S'=>51,'A'=>41,'B'=>31,'C'=>21,'D'=>11,'E'=>0];
     
     /*if ($score >= 41) {
         $grade = 'A';
