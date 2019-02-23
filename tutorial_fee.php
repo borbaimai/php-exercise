@@ -1,57 +1,62 @@
-<?php
 
-$total = 0;
-$change = 0;
 
-if (!empty($_POST['hour'])) {
-    $hour = $_POST['hour'];
-    $total = $hour * 250;
-}
-
-if (!empty($_POST['pay'])) {
-    $pay = $_POST['pay'];
-    $total = $_POST['total'];
-    $change = $pay - $total;
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tutorial Fee</title>
+
+    <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <div>
-            <label for="hour">Hour : </label>
-            <input type="text" name="hour">
-            <input type="submit" value="submit">
-        </div>
-    </form>
 
-    <h1>Result</h1>
-    <label>Total : </label><?php echo $total; ?>
 
-    <?php if ($total>0) { ?>
+<?php
 
-    <form action="" method="post">
-        <input type="hidden" name="total" value="<?php echo $total; ?>">
-        <div>
-            <label for="pay">Pay : </label>
-            <input type="text" name="pay">
-            <input type="submit" value="submit">
-        </div>
-    </form>
+if (!empty($_POST["hours"])){
 
-    <h1>Change</h1>
-    <label>Change Money : </label><?php echo $change; ?>
 
-    <?php } ?>
+$fee=$_POST["hours"]*250;
+
+echo "Total:".$fee;
 
     
+
+   
+
+        if (!empty($_POST["mypay"])){
+        $charge=$_POST["mypay"]-$fee;
+        echo "<br>Pay:".$_POST["mypay"];
+        echo "<br>Charge:".$charge;
+        } else {
+        
+        echo "<form action='' method='post'>
+        <label>Pay</label>
+        <input type='text' name='mypay' value='' />
+        <input type='hidden' name='hours' value='{$_POST["hours"]}' />
+        <input type='submit' />
+        </form>";   
+        }
+   
+
+
+
+}else { ?>
+    <form action='' method='post'>
+    <label>Enter Hours</label>
+    <input type='text' name='hours' value='' />
+    <input type='submit' />
+    </form>
     
+<?php } ?>
+
+
+
+
+
+
+
+
 </body>
 </html>
