@@ -17,7 +17,7 @@
 if (!empty($_POST["hours"])){
 
 
-$fee=$_POST["hours"]*250;
+$fee=$_POST["hours"]*300;
 
 echo "Total:".$fee;
 
