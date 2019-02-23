@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,5 +47,7 @@ echo "<br>".$k." hundred-baht note";
 
 
 ?>
+
+
 </body>
 </html>
