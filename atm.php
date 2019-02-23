@@ -8,16 +8,16 @@ $bank100 = 0;
    if ($_SERVER['REQUEST_METHOD']=='POST') {
         $drawmoney = $money = $_POST['money'];
 
-        /*$bank1000 = floor($money/1000);
+        $bank1000 = floor($money/1000);
         $money -= 1000*$bank1000;
 
         $bank500 = floor($money/500);
         $money -= 500*$bank500;
 
         $bank100 = floor($money/100);
-        $money -= 100*$bank100;*/
+        $money -= 100*$bank100;
 
-        while ($money >= 1000) {
+        /*while ($money >= 1000) {
             $money -= 1000;
             $bank1000 += 1;
         }
@@ -30,7 +30,7 @@ $bank100 = 0;
         while ($money >= 100) {
             $money -= 100;
             $bank100 += 1;
-        }
+        }*/
 
         /*for ($bank1000=0; $money >= 1000 ; $bank1000++) { 
             $money -= 1000;
