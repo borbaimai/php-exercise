@@ -18,11 +18,14 @@
     
 <?php
 
-if (!empty($_POST['withdraw'])&&($_POST['withdraw']%100)==0) {
+if ( !empty($_POST['withdraw']) &&
+($_POST['withdraw']%10)==0 &&
+($_POST['withdraw']%100)!=10   &&
+($_POST['withdraw']%100)!=30  ) {
     
-    $a=$_POST['withdraw'];
     
-            
+    
+    $a=$_POST['withdraw'];        
     for ($i=0;$a>=1000 ;$i++){
     $a=$a-1000;
     }
@@ -34,14 +37,34 @@ if (!empty($_POST['withdraw'])&&($_POST['withdraw']%100)==0) {
     for ($k=0;$a>=100 ;$k++){
     $a=$a-100;
     }
+    $l=0;
+    $m=0;
 
+
+    if ( ($a==50) || ($a==70) || ($a==90) ) {
+
+        $l=1;
+        $a=$a-50;
+        
+        for ($m=0;$a>=20 ;$m++){
+            $a=$a-20;
+        }
+
+    }else{
+    
+        for ($m=0;$a>=20 ;$m++){
+        $a=$a-20;
+        }
+    }
+    
 
 echo "<br><br><h1>Requested Amount : </h1>".$_POST['withdraw']. "Baht";
 echo "<br><br><h1>You will get : </h1>";
 echo "<br>".$i." one-thousand-baht note";
 echo "<br>".$j." five-hundred-baht note";
 echo "<br>".$k." hundred-baht note";
-
+echo "<br>".$l." fifty-baht note";
+echo "<br>".$m." twenty-baht note";
 }
 
 
