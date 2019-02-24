@@ -1,81 +1,52 @@
-<?php
-
-$grade = '';
-$grade_left = '';
-$grade_array = [];
-
-if (isset($_POST['txt_score'])) {
-
-    $score = $_POST['txt_score'];
-    $grade_array = ['S'=>51,'A'=>41,'B'=>31,'C'=>21,'D'=>11,'E'=>0];
-    
-    /*if ($score >= 41) {
-        $grade = 'A';
-        $grade_left = 'B C D E';
-    }elseif ($score >= 31) {
-        $grade = 'B';
-        $grade_left = 'A C D E';
-    }elseif ($score >= 21) {
-        $grade = 'C';
-        $grade_left = 'A B D E';
-    }elseif ($score >= 11) {
-        $grade = 'D';
-        $grade_left = 'A B C E';
-    }else{
-        $grade = 'E';
-        $grade_left = 'A B C D';
-    }*/
-    
-    /*$x = 41;
-    for ($i=0; $i < ; $i++) { 
-        if ($score >= $x) {
-            $grade = $grade_array[$i];
-            break;
-        }else {
-            $grade = $grade_array[$i];
-        }
-        $x -= 10;
-    }*/
-
-    foreach ($grade_array as $key => $value) {
-        if ($score >= $value) {
-            $grade = $key;
-            break;
-        }else {
-            $grade = $key;
-        }
-    }
-
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Grade</title>
+    <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="txt_score">
-        <input type="submit" value="ส่งข้อมูล">
-    </form>
-    <h1>Show Grade</h1>
-    <label>เกรดที่คุณได้คือ <?php echo $grade ?></label><br>
-    <label>เกรดที่เหลืออยู่คือ 
 
-    <?php 
-    
-        
-        //echo $grade_left;
-        unset($grade_array[$grade]);
-        foreach ($grade_array as $key => $value) {
-            echo $key.' ';
-        }
-        
-    ?>
-        
-    </label>
+<form action='' method='post'>
+<label><h1>Pleases Enter Your Score : </h1></label>
+<input type='text' name='score' />
+<input type="submit" value="Enter">  
+
+<?php
+
+
+$score=0;
+if (!empty($_POST["score"])){
+$score=$_POST["score"];
+}
+Echo "<br><br>Your score : ".$score."<br>";
+    if ( ($score>=41) && ($score<=50) ) {
+        echo "You are fucking clever!!! Congratulations! You got grade A. Tell your parents to get some candies";
+    }
+
+    elseif ( ($score>=31) && ($score<=40) ) {
+        echo "BBBBBBBBBBBBBB ya! That is your grade.";
+    }
+
+    elseif ( ($score>=21) && ($score<=30) ) {
+        echo "Wow!! You got C. Michael is super hot, isnt she? Why didnt you ask her to date?";
+    }
+
+    elseif ( ($score>=11) && ($score<=20) ) {
+        echo "Read some books before sleep. You got grade D. That means you are more stupid than average";
+    }
+
+    elseif ( ($score>=0) && ($score<=10) ) {
+        echo "Umm..Go ask your parent if they gave you the thing called brain. You got grade E, bro.";
+    }
+
+
+    else { echo "ERROR !! Fill your score again";
+    }
+
+
+?>
+
 </body>
 </html>
